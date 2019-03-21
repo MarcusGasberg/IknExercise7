@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;_
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
@@ -9,31 +9,33 @@ namespace IknExercise7
 {
     public class UdpServer
     {
-		private const int _port = 11000;
-		private const string iPString = "10.0.0.1";
+		private Socket _socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
-        public static void StartServer()
+        public void StartServer(string ipAddress,int port)
 		{
-			UdpClient listener = new UdpClient(_port);
-			IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse(iPString),_port);
+			IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse(ipAddress),port);
+            _socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.ReuseAddress, true);
+			_socket.Bind(groupEP);
 
             try
 			{
 				Console.WriteLine("Server started");
 				while(true)
 				{
-					byte[] bytes = listener.Receive(ref groupEP);
+					byte[] bytes = new byte[1024]; 
+					_socket.Receive(bytes);
 					string msg = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
+                    Console.WriteLine(msg);
 					if (msg.Length > 1)
 						continue;
 					msg = msg.ToLower();
                     switch(msg[0])
 					{
 						case 'l':
-							SendFileToListener(listener, "/proc/uptime");
+							SendFileToSocket("/proc/uptime");
 							continue;
 						case 'u':
-							SendFileToListener(listener, "/proc/loadavg");
+							SendFileToSocket("/proc/loadavg");
 							continue;
                            
 						default:
@@ -48,15 +50,15 @@ namespace IknExercise7
 			}
             finally
 			{
-				listener.Close();
+				_socket.Close();
 			}
 		}
 
-		private static void SendFileToListener(UdpClient listener,string filePath)
+		private void SendFileToSocket(string filePath)
 		{
 			string text = File.ReadAllText(filePath);
 			Byte[] sendBuffer = Encoding.UTF8.GetBytes(text);
-			listener.Send(sendBuffer, sendBuffer.Length);
+			_socket.Send(sendBuffer);
 		}
 	}
 }
