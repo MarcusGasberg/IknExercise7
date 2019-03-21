@@ -1,5 +1,5 @@
-﻿<Properties StartupConfiguration="{3C3ABFF6-B8B2-4B4B-9619-01024BA672EB}|Default">
-  <MonoDevelop.Ide.ItemProperties.IknExercise7__Server PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+﻿<Properties StartupConfiguration="{A9ADF460-3825-4175-8265-4099A846205E}|Default">
+  <MonoDevelop.Ide.ItemProperties.IknExercise7__Server PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="IknExercise7/UdpServer.cs">
     <Files>
       <File FileName="IknExercise7/Program.cs" Line="4" Column="2" />
@@ -13,5 +13,5 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.IknExercise7__Client FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.IknExercise7__Client PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
 </Properties>
