@@ -7,7 +7,7 @@ namespace IknExercise7
         public static void Main(string[] args)
         {
 			UdpServer server = new UdpServer();
-            server.StartServer("10.0.0.1",10000);
+            server.StartServer("10.0.0.2",9000);
         }
     }
 }
