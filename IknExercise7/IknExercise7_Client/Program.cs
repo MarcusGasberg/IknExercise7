@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace IknExercise7
+namespace IknExercise7_Client
 {
     class MainClass
     {
         public static void Main(string[] args)
         {
-			UdpServer.StartServer();
+            Console.WriteLine("Hello World!");
         }
     }
 }
