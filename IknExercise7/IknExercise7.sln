@@ -1,7 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IknExercise7", "IknExercise7\IknExercise7.csproj", "{3C3ABFF6-B8B2-4B4B-9619-01024BA672EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IknExercise7_Server", "IknExercise7\IknExercise7_Server.csproj", "{3C3ABFF6-B8B2-4B4B-9619-01024BA672EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IknExercise7_Client", "IknExercise7_Client\IknExercise7_Client.csproj", "{A9ADF460-3825-4175-8265-4099A846205E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +15,9 @@ Global
 		{3C3ABFF6-B8B2-4B4B-9619-01024BA672EB}.Debug|x86.Build.0 = Debug|x86
 		{3C3ABFF6-B8B2-4B4B-9619-01024BA672EB}.Release|x86.ActiveCfg = Release|x86
 		{3C3ABFF6-B8B2-4B4B-9619-01024BA672EB}.Release|x86.Build.0 = Release|x86
+		{A9ADF460-3825-4175-8265-4099A846205E}.Debug|x86.ActiveCfg = Debug|x86
+		{A9ADF460-3825-4175-8265-4099A846205E}.Debug|x86.Build.0 = Debug|x86
+		{A9ADF460-3825-4175-8265-4099A846205E}.Release|x86.ActiveCfg = Release|x86
+		{A9ADF460-3825-4175-8265-4099A846205E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
