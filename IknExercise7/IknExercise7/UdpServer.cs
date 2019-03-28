@@ -22,20 +22,20 @@ namespace IknExercise7
 				Console.WriteLine("Server started");
 				while(true)
 				{
-					byte[] bytes = new byte[1024]; 
-					_socket.Receive(bytes);
+					byte[] bytes = new byte[1024];
+					EndPoint recvEP = new IPEndPoint(IPAddress.Any, 0);
+					_socket.ReceiveFrom(bytes,ref recvEP);
 					string msg = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
-                    Console.WriteLine(msg);
-					if (msg.Length > 1)
-						continue;
+					msg = msg.TrimEnd('\0');
+					Console.WriteLine(msg);                 
 					msg = msg.ToLower();
                     switch(msg[0])
 					{
 						case 'l':
-							SendFileToSocket("/proc/uptime");
+							SendFileToSocket("/proc/uptime",recvEP);
 							continue;
 						case 'u':
-							SendFileToSocket("/proc/loadavg");
+							SendFileToSocket("/proc/loadavg",recvEP);
 							continue;
                            
 						default:
@@ -54,11 +54,11 @@ namespace IknExercise7
 			}
 		}
 
-		private void SendFileToSocket(string filePath)
+		private void SendFileToSocket(string filePath, EndPoint endpoint)
 		{
 			string text = File.ReadAllText(filePath);
 			Byte[] sendBuffer = Encoding.UTF8.GetBytes(text);
-			_socket.Send(sendBuffer);
+			_socket.SendTo(sendBuffer,endpoint);
 		}
 	}
 }
