@@ -9,7 +9,7 @@ namespace IknExercise7_Client
     {
         public static void Main(string[] args)
         {
-			var search = "u";
+			var search = args[0];
 			ReadDir(search);
             
         }
@@ -31,13 +31,7 @@ namespace IknExercise7_Client
 			IPEndPoint server = new IPEndPoint(ip_address, port);
 			socket.SendTo(sendbuf, server);
 			Console.WriteLine("character send to server");
-
-			/*UdpClient listener = new UdpClient(port);
-            IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse(IP_string_server), port);
-
-			byte[] bytes = listener.Receive(ref groupEP);
-            string msg = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
-			Console.WriteLine(msg);*/
+           
 			byte[] bytes = new byte[1024];
 			EndPoint recv = new IPEndPoint(IPAddress.Any, 0);
 			socket.ReceiveFrom(bytes, ref recv);
@@ -47,7 +41,7 @@ namespace IknExercise7_Client
 			Console.ReadLine();
             
     
-    }
+        }
 	}
 
    
